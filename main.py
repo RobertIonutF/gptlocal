@@ -3,7 +3,7 @@ import os
 
 # Create an instance of the OpenAIChat class
 instruction = "You are a helpful assistant."
-chat = OpenAIChat(instructions=instruction)
+chat = OpenAIChat()
 
 os.system('cls' if os.name == 'nt' else 'clear')
 while True:
@@ -23,7 +23,7 @@ while True:
         input("Press Enter to continue...")
         os.system('cls' if os.name == 'nt' else 'clear')
 
-        response = chat.make_gpt3_request(request)
+        response = chat.make_gpt_request(request)
         messages = chat.getPrettyHistory()
     elif command == "save":
         chat.save_history()

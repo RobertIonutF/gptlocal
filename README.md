@@ -1,64 +1,78 @@
-OpenAI Chat
-This is a Python project that provides a class OpenAIChat which makes interactions with the OpenAI GPT-3 API easier for chat-based tasks.
+OpenAIChat - A Chatbot using OpenAI GPT-4
+OpenAIChat is an interactive command-line chatbot using the OpenAI GPT-4. The chatbot uses the GPT-4 model to generate responses to user queries and maintains a history of the conversation. This history can be saved, cleared, or loaded as needed.
 
-The class provides methods for maintaining a conversation history, making GPT-3 requests, parsing the history into a readable format, saving and loading history files, and more.
+Setup
+Follow these steps to get OpenAIChat up and running:
 
-Features
-Create a conversational agent with the OpenAI API.
-Manage conversation history and allow chat-based interactions.
-Save and load conversation histories to/from files.
-Get a list of all saved conversation histories.
-Installation
-Clone the repository:
+Clone the repository to your local machine.
 bash
 Copy code
-git clone https://github.com/yourusername/OpenAIChat.git
-Move into the project directory:
+git clone https://github.com/your_github_username/openai_chat.git
+cd openai_chat
+Set up a virtual environment (optional, but recommended).
 bash
 Copy code
-cd OpenAIChat
-Install the necessary Python packages:
+python3 -m venv venv
+source venv/bin/activate  # On Windows use `venv\Scripts\activate`
+Install the required Python packages.
 bash
 Copy code
 pip install -r requirements.txt
-NOTE: The project requires Python 3.6+.
-
-Usage
-Firstly, you need to set your OpenAI API key. You can get it from the OpenAI website. Once you have the key, save it in a .env file in your project directory like so:
-
+Create an .env file in the root directory of the project and set your OpenAI API key and the model you wish to use.
 makefile
 Copy code
-OPENAI_API_KEY=your-api-key-here
-Here is an example of how to use the OpenAIChat class:
-
-python
-Copy code
-from openai_chat import OpenAIChat
-
-# Instantiate the chat object with the desired system message
-chat = OpenAIChat("You are a helpful assistant.")
-
-# Make a GPT-3 request and get the history
-history = chat.make_gpt3_request("Hello, World!")
-print(history)
-
-# Save the history
-chat.save_history()
-
-# Load a specific history file
-chat.load_history("your-history-file.json")
-
-# Get all history files
-files = chat.get_history_files()
-print(files)
-Tests
-Unit tests are available in the test_openai_chat.py file. Run the tests using the following command:
+OPENAI_API_KEY=your_openai_api_key
+MODEL=model_name
+INSTRUCTION="You are a helpful assistant."
+Usage
+To start the chatbot, run the main.py script.
 
 bash
 Copy code
-python -m unittest test_openai_chat.py
-Contributions
-Contributions to this project are welcome! Please create a pull request with your changes.
+python main.py
+You'll be presented with a menu:
 
+vbnet
+Copy code
+Hello, this is a chatbot that uses the OpenAI API to generate responses.
+Instructions: You are a helpful assistant.
+Type 'request' to make a request to the OpenAI API
+Type 'save' to save the history
+Type 'load' to load a history
+Type 'clear' to clear the history
+Type 'exit' to exit the program
+Here's what each command does:
+
+request: Allows you to make a request to the OpenAI API. Enter your query after issuing this command.
+save: Saves the current chat history in a JSON file.
+load: Loads a previous chat history from a JSON file. You'll need to enter the file name.
+clear: Clears the current chat history.
+exit: Exits the program.
+Tests
+To run tests, use the following command:
+
+bash
+Copy code
+python -m unittest
 License
-This project is licensed under the terms of the MIT license.
+MIT License
+
+Copyright (c) 2023 Your Name
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.

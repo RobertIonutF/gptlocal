@@ -5,17 +5,18 @@ import json
 import os
 
 class OpenAIChat:
-    def __init__(self, instructions="You are a helpful assistant."):
+    def __init__(self):
         openai.api_key = dotenv.get_key('.env', 'OPENAI_API_KEY')
         self.requests = []
         self.history = []
-        self.instructions = self.init_history(instructions)
+        self.model = dotenv.get_key('.env', 'MODEL')
+        self.instructions = self.init_history(dotenv.get_key('.env', 'INSTRUCTION'))
 
     def init_history(self, instructions):
         self.history.append({"role": "system", "content": instructions})
         return instructions  # Return the instructions
 
-    def make_gpt3_request(self, request_message):
+    def make_gpt_request(self, request_message):
 
         # It needs to be an array of objects like: messages: [{role: "user", content: "Hello, World!"}]
         obj = {"role": "user", "content": request_message}
@@ -24,7 +25,7 @@ class OpenAIChat:
         if len(self.history) < 1:
             self.history.append(obj)
             response = openai.ChatCompletion.create(
-                model="gpt-3.5-turbo-16k",
+                model=self.model,
                 messages=[
                     obj
                 ]
@@ -36,7 +37,7 @@ class OpenAIChat:
             self.history.append(obj)
 
             response = openai.ChatCompletion.create(
-                model="gpt-3.5-turbo-16k",
+                model=self.model,
                 messages=self.history,
             )
 
@@ -68,7 +69,7 @@ class OpenAIChat:
 
     def save_history(self):
         # we make a gpt3 request to ask for a history suggestion name, we will it use to store the history
-        response = self.make_gpt3_request("Please name this conversation history, just write the name and nothing else")
+        response = self.make_gpt_request("Please name this conversation history, just write the name and nothing else")
         # we get the name of the history from the response
         history_name = response[-1]["content"]
         # Clean the history name to ensure it's a valid filename
