@@ -1,59 +1,73 @@
-OpenAIChat - A Chatbot using OpenAI GPT-4
+# OpenAIChat - A Chatbot using OpenAI GPT-4
+
 OpenAIChat is an interactive command-line chatbot using the OpenAI GPT-4. The chatbot uses the GPT-4 model to generate responses to user queries and maintains a history of the conversation. This history can be saved, cleared, or loaded as needed.
 
-Setup
+## Setup
+
 Follow these steps to get OpenAIChat up and running:
 
-Clone the repository to your local machine.
-bash
-Copy code
-git clone https://github.com/your_github_username/openai_chat.git
-cd openai_chat
-Set up a virtual environment (optional, but recommended).
-bash
-Copy code
-python3 -m venv venv
-source venv/bin/activate  # On Windows use `venv\Scripts\activate`
-Install the required Python packages.
-bash
-Copy code
-pip install -r requirements.txt
-Create an .env file in the root directory of the project and set your OpenAI API key and the model you wish to use.
-makefile
-Copy code
-OPENAI_API_KEY=your_openai_api_key
-MODEL=model_name
-INSTRUCTION="You are a helpful assistant."
-Usage
-To start the chatbot, run the main.py script.
+1. **Clone the repository** to your local machine:
 
-bash
-Copy code
-python main.py
-You'll be presented with a menu:
+    ```bash
+    git clone https://github.com/your_github_username/openai_chat.git
+    cd openai_chat
+    ```
 
-vbnet
-Copy code
-Hello, this is a chatbot that uses the OpenAI API to generate responses.
-Instructions: You are a helpful assistant.
-Type 'request' to make a request to the OpenAI API
-Type 'save' to save the history
-Type 'load' to load a history
-Type 'clear' to clear the history
-Type 'exit' to exit the program
-Here's what each command does:
+2. **Set up a virtual environment** (optional, but recommended):
 
-request: Allows you to make a request to the OpenAI API. Enter your query after issuing this command.
-save: Saves the current chat history in a JSON file.
-load: Loads a previous chat history from a JSON file. You'll need to enter the file name.
-clear: Clears the current chat history.
-exit: Exits the program.
-Tests
+    ```bash
+    python3 -m venv venv
+    source venv/bin/activate  # On Windows use `venv\Scripts\activate`
+    ```
+
+3. **Install the required Python packages**:
+
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+4. **Create an .env file** in the root directory of the project and set your OpenAI API key and the model you wish to use:
+
+    ```bash
+    OPENAI_API_KEY=your_openai_api_key
+    MODEL=model_name
+    INSTRUCTION="You are a helpful assistant."
+    ```
+
+## Usage
+
+To start the chatbot, run the `main.py` script:
+
+**You'll be presented with a menu:**
+
+    ```bash
+    Hello, this is a chatbot that uses the OpenAI API to generate responses.
+    Instructions: You are a helpful assistant.
+    Type 'request' to make a request to the OpenAI API
+    Type 'save' to save the history
+    Type 'load' to load a history
+    Type 'clear' to clear the history
+    Type 'exit' to exit the program
+    ```
+
+## Here's what each command does:
+
+    ```bash
+        request: Allows you to make a request to the OpenAI API. Enter your query after issuing this command.
+        save: Saves the current chat history in a JSON file.
+        load: Loads a previous chat history from a JSON file. You'll need to enter the file name.
+        clear: Clears the current chat history.
+        exit: Exits the program.
+    ```
+
+# Tests
 To run tests, use the following command:
+    ```bash
+        python -m unittest
+    ```
 
-bash
-Copy code
-python -m unittest
+# License
+
 License
 MIT License
 
@@ -76,3 +90,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+
+This includes sections for your project title, description, setup instructions, usage, testing, and license information.
